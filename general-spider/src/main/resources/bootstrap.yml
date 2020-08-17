@@ -1,0 +1,27 @@
+server:
+  port: 8808
+
+spring:
+  application:
+    name: general-spider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/general?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

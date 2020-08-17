@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="/login" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>验证码:</td>
+            <td><input type="text" name="code"></td>
+            <td><img id="verifyImg"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">登录</button></td>
+        </tr>
+    </table>
+    <input type="hidden" name="key" id="key">
+</form>
+</body>
+<script>
+    window.onload=()=>{
+        getVerify()
+        document.querySelector("#verifyImg").addEventListener("click", getVerify)
+    }
+
+    function getVerify(){
+        let key = guid()
+        document.querySelector("#verifyImg").src = "/getVerify?key=" + key
+        document.querySelector("#key").value = key
+    }
+
+    function guid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            let r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,34 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: general-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    dynamic:
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 10
+        min-idle: 2
+        connection-test-query: select 1
+        pool-name: QiangHikariCP
+      primary: master
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/general?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

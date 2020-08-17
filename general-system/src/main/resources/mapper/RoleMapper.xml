@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="per.qiang.system.mapper.RoleMapper">
+    <resultMap id="roleMap" type="role">
+        <id column="ID" jdbcType="DECIMAL" property="id"/>
+        <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
+        <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime"/>
+    </resultMap>
+
+    <select id="findUserRole" resultMap="roleMap">
+        SELECT
+            r.*
+        FROM
+            role r
+        LEFT JOIN user_role ur ON (r.id = ur.role_id)
+        LEFT JOIN `user` u ON (u.id = ur.user_id)
+        WHERE
+            u.username = #{username}
+    </select>
+
+    <select id="findRolePage" parameterType="role" resultType="per.qiang.common.core.pojo.RoleWrapper">
+        SELECT
+        r.id,
+        r.role_name roleName,
+        r.remark,
+        r.create_time createTime,
+        r.modify_time modifyTime,
+        GROUP_CONCAT( rm.menu_id ) menuIds
+        FROM
+        role r
+        LEFT JOIN role_menu rm ON ( r.id = rm.role_id )
+        <where>
+            <if test="role.roleName != null and role.roleName != ''">
+                r.role_name like CONCAT('%',#{role.roleName},'%')
+            </if>
+        </where>
+        GROUP BY r.id
+    </select>
+
+</mapper>

@@ -1,0 +1,25 @@
+server:
+  port: 8800
+spring:
+  application:
+    name: general-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: auth_service
+          uri: lb://general-auth
+          predicates:
+            - Path=/auth/**
+        - id: spider_service
+          uri: lb://general-spider
+          predicates:
+            - Path=/spider/**
+        - id: member_service
+          uri: lb://general-system
+          predicates:
+            - Path=/system/**
+      default-filters:
+        - StripPrefix=1

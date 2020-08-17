@@ -1,0 +1,50 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: general-system
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    dynamic:
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 5
+        connection-test-query: select 1
+        pool-name: QiangHikariCP
+      primary: master
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/general?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave:
+          url: jdbc:mysql://127.0.0.1:3306/financial?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+mybatis-plus:
+  type-aliases-package: per.qiang.common.core.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

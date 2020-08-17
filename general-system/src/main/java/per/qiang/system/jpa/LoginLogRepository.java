@@ -1,0 +1,23 @@
+package per.qiang.system.jpa;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import per.qiang.common.core.entity.LoginLog;
+import per.qiang.common.core.entity.OperateLog;
+import per.qiang.common.core.entity.User;
+
+import java.util.List;
+import java.util.Map;
+
+public interface LoginLogRepository extends JpaRepository<LoginLog, Long>, JpaSpecificationExecutor<LoginLog> {
+
+    @Query(value = "SELECT count(1) FROM login_log WHERE login_time between CURDATE() and DATE_ADD(CURDATE(), INTERVAL 1 DAY)", nativeQuery = true)
+    Long findTodayVisitCount();
+
+    @Query(value = "SELECT count(DISTINCT(ip)) FROM login_log WHERE login_time between CURDATE() and DATE_ADD(CURDATE(), INTERVAL 1 DAY)", nativeQuery = true)
+    Long findTodayIp();
+
+
+
+}
