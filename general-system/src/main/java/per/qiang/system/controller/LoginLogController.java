@@ -6,11 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import per.qiang.common.core.entity.LoginLog;
-import per.qiang.common.core.pojo.LoginLogWrapper;
+import per.qiang.system.entity.LoginLog;
+import per.qiang.system.pojo.LoginLogWrapper;
 import per.qiang.common.core.pojo.QueryRequest;
 import per.qiang.common.core.util.CommonUtil;
-import per.qiang.common.core.util.ExcelUtil;
+import per.qiang.common.core.util.PoiUtil;
 import per.qiang.common.security.util.AuthUtil;
 import per.qiang.system.annotation.ControllerEndpoint;
 import per.qiang.system.service.LoginLogService;
@@ -55,6 +55,6 @@ public class LoginLogController {
     @ControllerEndpoint(operation = "导出登录日志数据", exceptionMessage = "导出Excel失败")
     public void export(QueryRequest request, LoginLogWrapper loginLogWrapper, HttpServletResponse response) throws IOException {
         List<LoginLog> loginLogs = this.loginLogService.findLoginLogs(loginLogWrapper, request).getRecords();
-        ExcelUtil.exportExcel(loginLogs, LoginLog.class, response);
+        PoiUtil.exportExcel(loginLogs, LoginLog.class, response);
     }
 }

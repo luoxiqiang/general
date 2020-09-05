@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import per.qiang.common.core.entity.LoginLog;
 import per.qiang.common.core.entity.Menu;
 
 import java.util.List;

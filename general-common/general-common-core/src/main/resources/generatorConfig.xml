@@ -53,7 +53,7 @@
         <!-- 必须要有的，使用这个配置链接数据库
             @TODO:是否可以扩展
          -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/general?useSSL=false" userId="root" password="root">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/financial?useSSL=false" userId="root" password="root">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
         </jdbcConnection>
 
@@ -174,7 +174,7 @@
          -->
 
 
-        <table tableName="oauth_client_details" >
+        <table tableName="daily_trade_stock" >
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <property name="constructorBased" value="false"/>

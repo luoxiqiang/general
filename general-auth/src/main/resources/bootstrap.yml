@@ -29,6 +29,9 @@ spring:
       ddl-auto: none
     show-sql: true
 
+swagger:
+  base-package: per.qiang.auth.controller
+
 logging:
   level:
     org.hibernate.type.descriptor.sql.BasicBinder: trace

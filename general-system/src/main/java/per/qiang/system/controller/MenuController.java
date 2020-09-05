@@ -7,7 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import per.qiang.common.core.entity.Menu;
 import per.qiang.common.core.pojo.VueRouter;
-import per.qiang.common.core.util.ExcelUtil;
+import per.qiang.common.core.util.PoiUtil;
 import per.qiang.system.annotation.ControllerEndpoint;
 import per.qiang.system.service.MenuService;
 
@@ -77,6 +77,6 @@ public class MenuController {
     @ControllerEndpoint(operation = "导出菜单数据", exceptionMessage = "导出Excel失败")
     public void export(Menu menu, HttpServletResponse response) throws IOException {
         List<Menu> menus = this.menuService.findMenuList(menu);
-        ExcelUtil.exportExcel(menus, Menu.class, response);
+        PoiUtil.exportExcel(menus, Menu.class, response);
     }
 }

@@ -8,11 +8,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EntityScan("per.qiang.common.core.entity")
+@EntityScan({"per.qiang.common.core.entity","per.qiang.system.entity"})
 @MapperScan("per.qiang.system.mapper")
 public class SystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SystemApplication.class,args);
+        SpringApplication.run(SystemApplication.class, args);
     }
 }

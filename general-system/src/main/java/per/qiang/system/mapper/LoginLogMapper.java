@@ -1,7 +1,7 @@
 package per.qiang.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import per.qiang.common.core.entity.LoginLog;
+import per.qiang.system.entity.LoginLog;
 import per.qiang.common.core.entity.User;
 
 import java.util.List;

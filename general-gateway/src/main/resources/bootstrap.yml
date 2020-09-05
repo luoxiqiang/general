@@ -17,9 +17,10 @@ spring:
           uri: lb://general-spider
           predicates:
             - Path=/spider/**
-        - id: member_service
+        - id: system_service
           uri: lb://general-system
           predicates:
             - Path=/system/**
       default-filters:
         - StripPrefix=1
+        - SwaggerHeaderFilter

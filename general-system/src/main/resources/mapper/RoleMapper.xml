@@ -20,7 +20,7 @@
             u.username = #{username}
     </select>
 
-    <select id="findRolePage" parameterType="role" resultType="per.qiang.common.core.pojo.RoleWrapper">
+    <select id="findRolePage" parameterType="role" resultType="per.qiang.system.pojo.RoleWrapper">
         SELECT
         r.id,
         r.role_name roleName,

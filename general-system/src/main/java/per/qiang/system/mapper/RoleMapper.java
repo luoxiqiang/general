@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import per.qiang.common.core.entity.Role;
-import per.qiang.common.core.pojo.RoleWrapper;
+import per.qiang.system.pojo.RoleWrapper;
 
 import java.util.List;
 

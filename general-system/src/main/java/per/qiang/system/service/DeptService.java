@@ -12,12 +12,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import per.qiang.common.core.constant.PageConstant;
 import per.qiang.common.core.entity.Dept;
-import per.qiang.common.core.pojo.DeptTree;
-import per.qiang.common.core.pojo.DeptWrapper;
+import per.qiang.system.pojo.DeptTree;
+import per.qiang.system.pojo.DeptWrapper;
 import per.qiang.common.core.pojo.QueryRequest;
 import per.qiang.common.core.pojo.Tree;
 import per.qiang.common.core.util.TreeUtil;
-import per.qiang.system.jpa.DeptRepository;
 import per.qiang.system.mapper.DeptMapper;
 
 import java.util.*;

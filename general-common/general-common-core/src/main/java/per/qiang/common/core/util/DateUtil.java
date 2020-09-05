@@ -34,6 +34,12 @@ public class DateUtil {
         return sdf.parse(strDate);
     }
 
+    public static Date parse(String format, Date date) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        String _format = sdf.format(date);
+        return sdf.parse(_format);
+    }
+
     /**
      * 格式化时间，格式为 yyyyMMddHHmmss
      */
@@ -52,7 +58,7 @@ public class DateUtil {
     /**
      * 根据传入的格式，格式化时间
      */
-    public static String getDateFormat(Date date, String format) {
+    public static String formatDate(Date date, String format) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.CHINA);
         return simpleDateFormat.format(date);
     }
@@ -63,7 +69,7 @@ public class DateUtil {
     public static String formatCstTime(String date, String format) throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(CST_TIME_PATTERN, Locale.US);
         Date usDate = simpleDateFormat.parse(date);
-        return getDateFormat(usDate, format);
+        return formatDate(usDate, format);
     }
 
     /**

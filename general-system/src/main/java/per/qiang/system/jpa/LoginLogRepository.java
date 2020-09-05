@@ -3,12 +3,7 @@ package per.qiang.system.jpa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import per.qiang.common.core.entity.LoginLog;
-import per.qiang.common.core.entity.OperateLog;
-import per.qiang.common.core.entity.User;
-
-import java.util.List;
-import java.util.Map;
+import per.qiang.system.entity.LoginLog;
 
 public interface LoginLogRepository extends JpaRepository<LoginLog, Long>, JpaSpecificationExecutor<LoginLog> {
 

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import per.qiang.common.core.entity.Role;
 import per.qiang.common.core.pojo.QueryRequest;
-import per.qiang.common.core.pojo.RoleWrapper;
+import per.qiang.system.pojo.RoleWrapper;
 import per.qiang.system.jpa.RoleRepositoty;
 import per.qiang.system.mapper.RoleMapper;
 

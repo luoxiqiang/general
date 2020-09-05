@@ -7,10 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EntityScan("per.qiang.common.core.entity")
+@EntityScan({"per.qiang.common.core.entity","per.qiang.auth.entity"})
 public class AuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthApplication.class,args);
+        SpringApplication.run(AuthApplication.class, args);
     }
 }

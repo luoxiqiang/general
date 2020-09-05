@@ -11,9 +11,6 @@ public class TreeUtil {
 
     private final static String TOP_NODE_ID = "0";
 
-    /**
-     * 用于构建菜单或部门树
-     */
     public static <T> List<? extends Tree<?>> build(List<? extends Tree<T>> nodes) {
         if (nodes == null) {
             return null;
@@ -46,9 +43,6 @@ public class TreeUtil {
     }
 
 
-    /**
-     * 构造前端路由
-     */
     public static <T> List<VueRouter<T>> buildVueRouter(List<VueRouter<T>> routes) {
         if (routes == null) {
             return null;

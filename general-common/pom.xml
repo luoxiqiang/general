@@ -18,6 +18,9 @@
         <module>general-common-datasource-starter</module>
         <module>general-common-security-starter</module>
         <module>general-common-job-starter</module>
+        <module>general-common-fdfs-starter</module>
+        <module>general-common-doc-starter</module>
+        <module>general-common-feign-sentinel-starter</module>
     </modules>
 
 

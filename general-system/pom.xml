@@ -22,25 +22,37 @@
         <dependency>
             <groupId>per.qiang</groupId>
             <artifactId>general-common-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>per.qiang</groupId>
             <artifactId>general-common-security-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>per.qiang</groupId>
             <artifactId>general-common-redis-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>per.qiang</groupId>
             <artifactId>general-common-datasource-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>per.qiang</groupId>
+            <artifactId>general-common-feign-sentinel-starter</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>per.qiang</groupId>
+            <artifactId>general-common-doc-starter</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import per.qiang.auth.jpa.OauthClientDetailsRepository;
-import per.qiang.common.core.entity.OauthClientDetails;
+import per.qiang.auth.entity.OauthClientDetails;
 import per.qiang.common.core.pojo.QueryRequest;
 import per.qiang.common.core.util.JpaUtil;
 

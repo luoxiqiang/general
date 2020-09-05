@@ -1,6 +1,8 @@
 package per.qiang.system.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -8,9 +10,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import per.qiang.common.core.entity.Dept;
-import per.qiang.common.core.pojo.DeptWrapper;
+import per.qiang.system.pojo.DeptWrapper;
 import per.qiang.common.core.pojo.QueryRequest;
-import per.qiang.common.core.util.ExcelUtil;
+import per.qiang.common.core.util.PoiUtil;
 import per.qiang.system.annotation.ControllerEndpoint;
 import per.qiang.system.service.DeptService;
 
@@ -26,11 +28,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("dept")
 @RequiredArgsConstructor
+@Api(tags = "部门管理")
 public class DeptController {
 
     private final DeptService deptService;
 
     @GetMapping
+    @ApiOperation("获取部门列表")
     public ResponseEntity<?> deptList(QueryRequest request, DeptWrapper deptWrapper) {
         Map<String, Object> depts = this.deptService.findDepts(request, deptWrapper);
         return ResponseEntity.ok(depts);
@@ -63,6 +67,6 @@ public class DeptController {
     @ControllerEndpoint(operation = "导出部门数据", exceptionMessage = "导出Excel失败")
     public void export(DeptWrapper deptWrapper, QueryRequest request, HttpServletResponse response) throws IOException {
         List<Dept> depts = this.deptService.findDepts(deptWrapper, request);
-        ExcelUtil.exportExcel(depts, Dept.class, response);
+        PoiUtil.exportExcel(depts, Dept.class, response);
     }
 }

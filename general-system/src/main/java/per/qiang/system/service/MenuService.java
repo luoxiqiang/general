@@ -1,6 +1,5 @@
 package per.qiang.system.service;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -16,6 +15,10 @@ import per.qiang.common.core.entity.Menu;
 import per.qiang.common.core.pojo.*;
 import per.qiang.common.core.util.TreeUtil;
 import per.qiang.system.jpa.MenuRepository;
+import per.qiang.system.pojo.MenuTree;
+import per.qiang.system.pojo.MenuWrapper;
+import per.qiang.common.core.pojo.RouterMeta;
+import per.qiang.common.core.pojo.VueRouter;
 
 import java.util.*;
 

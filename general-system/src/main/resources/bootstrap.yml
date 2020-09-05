@@ -11,10 +11,10 @@ spring:
   datasource:
     dynamic:
       hikari:
-        connection-timeout: 30000
+        connection-timeout: 3000
         max-lifetime: 1800000
-        max-pool-size: 15
-        min-idle: 5
+        max-pool-size: 9
+        min-idle: 3
         connection-test-query: select 1
         pool-name: QiangHikariCP
       primary: master
@@ -45,6 +45,10 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+swagger:
+  base-package: per.qiang.system.controller
+
 logging:
   level:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
+

@@ -15,4 +15,6 @@ public interface AuthCons {
      String VERIFY_CODE = "code";
 
      String VERIFY_KEY_PREFIX = "qiang.verify.";
+
+     String OAUTH2_TOKEN_TYPE = "Bearer ";
 }

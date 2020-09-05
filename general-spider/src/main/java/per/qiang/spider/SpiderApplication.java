@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EntityScan("per.qiang.common.core.entity")
+@EntityScan("per.qiang.spider.entity")
 public class SpiderApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpiderApplication.class,args);

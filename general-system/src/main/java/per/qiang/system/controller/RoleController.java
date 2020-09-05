@@ -9,9 +9,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import per.qiang.common.core.entity.Role;
 import per.qiang.common.core.pojo.QueryRequest;
-import per.qiang.common.core.pojo.RoleWrapper;
+import per.qiang.system.pojo.RoleWrapper;
 import per.qiang.common.core.util.CommonUtil;
-import per.qiang.common.core.util.ExcelUtil;
+import per.qiang.common.core.util.PoiUtil;
 import per.qiang.system.annotation.ControllerEndpoint;
 import per.qiang.system.service.RoleService;
 
@@ -76,6 +76,6 @@ public class RoleController {
     @ControllerEndpoint(operation = "导出角色数据", exceptionMessage = "导出Excel失败")
     public void export(QueryRequest queryRequest, Role role, HttpServletResponse response) throws IOException {
         List<RoleWrapper> roles = roleService.findRoles(role, queryRequest).getRecords();
-        ExcelUtil.exportExcel(roles, Role.class, response);
+        PoiUtil.exportExcel(roles, Role.class, response);
     }
 }

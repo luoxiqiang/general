@@ -45,6 +45,7 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
+                .antMatchers("/v2/api-docs").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();
     }
@@ -74,4 +75,17 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+    // 使用feign 需配置这个
+    /*@Bean
+    public RequestInterceptor oauth2FeignRequestInterceptor() {
+        return requestTemplate -> {
+            String authorizationToken = AuthUtil.getCurrentTokenValue();
+            if (StringUtils.isNotBlank(authorizationToken)) {
+                requestTemplate.header(HttpHeaders.AUTHORIZATION, AuthCons.OAUTH2_TOKEN_TYPE + authorizationToken);
+            }
+        };
+    }*/
+
+
 }

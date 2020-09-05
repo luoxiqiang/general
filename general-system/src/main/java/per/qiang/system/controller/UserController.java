@@ -6,13 +6,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import per.qiang.common.core.entity.User;
-import per.qiang.common.core.pojo.LoginLogWrapper;
 import per.qiang.common.core.pojo.QueryRequest;
 import per.qiang.common.core.util.CommonUtil;
-import per.qiang.common.core.util.ExcelUtil;
+import per.qiang.common.core.util.PoiUtil;
 import per.qiang.common.security.pojo.AuthUser;
 import per.qiang.common.security.util.AuthUtil;
 import per.qiang.system.annotation.ControllerEndpoint;
+import per.qiang.system.pojo.LoginLogWrapper;
 import per.qiang.system.service.LoginLogService;
 import per.qiang.system.service.UserService;
 
@@ -144,6 +144,6 @@ public class UserController {
     @ControllerEndpoint(operation = "导出用户数据", exceptionMessage = "导出Excel失败")
     public void export(QueryRequest queryRequest, AuthUser authUser, HttpServletResponse response) throws IOException {
         List<User> users = this.userService.findUserDetailList(authUser, queryRequest).getRecords();
-        ExcelUtil.exportExcel(users, User.class, response);
+        PoiUtil.exportExcel(users, User.class, response);
     }
 }

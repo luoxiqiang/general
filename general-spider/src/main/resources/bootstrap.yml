@@ -9,18 +9,36 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/general?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
-
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-
+    dynamic:
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 2
+        connection-test-query: select 1
+        pool-name: QiangHikariCP
+      primary: master
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/financial?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+xxl:
+  job:
+    access-token: qiang_xxl_job
+    admin:
+      addresses: http://127.0.0.1:8810/xxl-job-admin
+    executor:
+      appname: ${spring.application.name}
+
 
 logging:
   level:

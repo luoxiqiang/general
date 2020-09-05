@@ -8,7 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import per.qiang.auth.service.OauthClientDetailsService;
-import per.qiang.common.core.entity.OauthClientDetails;
+import per.qiang.auth.entity.OauthClientDetails;
 import per.qiang.common.core.pojo.QueryRequest;
 import per.qiang.common.core.util.CommonUtil;
 
